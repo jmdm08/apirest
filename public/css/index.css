@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section{
+    width: 70%;
+    margin: 0 auto;
+}
+
+header{
+    background-color: black;
+    height: 50px;
+}
+
+form{
+    margin-top: 20px;
+}
+
+form label,
+form input{
+    font-size: 17px;
+}
+
+form div{
+    margin: 10px;
+}
+
+form input{
+    height: 35px;
+    width: 100%;
+}
+
+.button{
+    width: 50%;
+}
+
+table{
+    border: 2px black solid;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+table caption{
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+table th,
+table td{
+    border: 1px black solid;
+}

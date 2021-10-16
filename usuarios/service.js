@@ -1,13 +1,13 @@
 const modeloUsuario = require('./model');
 
-function obtenerUsuarios(){
-    // AQUÍ SE LLAMAN LOS MODELOS QUE SE NECESITEN.
-    return "Lista de usuario";
+async function obtenerUsuarios(){
+    const resultados = await modeloUsuario.selectSQL();
+    return resultados;
 }
 
-function obtenerUsuario(id){
-    // AQUÍ SE LLAMA EL MODEL
-    return "Datos del usuario: " + id;
+async function obtenerUsuario(id){
+    const resultados = await modeloUsuario.selectByIdSQL(id); 
+    return resultados;
 }
 
 // async

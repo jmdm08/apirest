@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 require('dotenv').config();
 const controladorUsuarios = require('./usuarios/controller');
 
@@ -12,6 +13,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 // IMPLEMENTAR CONTROLADORES
 // URL_SERVER:PORT/usuarios/listar
 app.use("/usuarios", controladorUsuarios);
+
+// CONFIGURAR CARPETA PÚBLICA
+const publicPath = path.resolve(__dirname, 'public');
+app.use(express.static(publicPath));
+
+// CARGAR EL INDEX.HTML DESDE LA CARPETA PÚBLICA.
+app.get("/", function(req, res){
+    res.sendFile(path.join(__dirname+'./index.html'));
+});
 
 app.listen(port, function(){
     console.log("API ejecutándose en el puerto: " + port);

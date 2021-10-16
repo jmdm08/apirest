@@ -1,9 +1,44 @@
 const conexion = require("../database/conexion");
 
+function selectSQL(){
+    const selectSQL = "SELECT * FROM usuario";
+    return conexion.getConnection()
+        .then(function(con){
+            return con.query(selectSQL)
+                .then(function(resultados){
+                    return resultados;
+                })
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+}
+
+function selectByIdSQL(id){
+    let arrayDatos;
+    if(id){
+        arrayDatos = [id]
+    }
+    else{
+        return null;
+    }
+    const selectSQL = "SELECT * FROM usuario WHERE id = ?";
+    return conexion.getConnection()
+        .then(function(con){
+            return con.query(selectSQL, arrayDatos)
+                .then(function(resultados){
+                    return resultados;
+                })
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+}
+
 function insertSQL(datos){
     let arrayDatos;
     if(datos){
-        arrayDatos = [];
+        arrayDatos = [datos.nombres, datos.apellidos, datos.email, datos.edad];
     }
     else{
         return false;
@@ -66,6 +101,9 @@ function deleteSQL(id){
         })
 }
 
+
+module.exports.selectSQL = selectSQL;
+module.exports.selectByIdSQL = selectByIdSQL;
 module.exports.insertSQL = insertSQL;
 module.exports.updateSQL = updateSQL;
 module.exports.deleteSQL = deleteSQL;

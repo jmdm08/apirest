@@ -11,18 +11,18 @@ const serviciosUsuarios = require('./service');
 */
 
 // SELECCIONAR TODOS LOS USUARIOS
-routes.get("/listar", function(req, res){
+routes.get("/listar", async function(req, res){
     // AQUI SE LLAMA EL SERVICIO QUE VA A TRANSFORMAR LA PETICIÓN
-    let data = serviciosUsuarios.obtenerUsuarios();
-    res.send({mensaje: data});
+    let data = await serviciosUsuarios.obtenerUsuarios();
+    res.send({usuarios: data});
 });
 
 // OBTENER UN USUARIO
-routes.get("/listar/:id", function(req, res){
+routes.get("/listar/:id", async function(req, res){
     // AQUÍ EL SERVICIO
     let id = req.params.id;
-    let data = serviciosUsuarios.obtenerUsuario(id);
-    res.send({mensaje: data});
+    let data = await serviciosUsuarios.obtenerUsuario(id);
+    res.send(data);
 });
 
 routes.post("/crear", async function(req, res){

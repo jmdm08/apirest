@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Conectado Back Con Front</title>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+    </head>
+    <body>
+        <header></header>
+        <section>
+            <article>
+                <div>
+                    <form>
+                        <fieldset>
+                            <legend>Datos del Usuario</legend>
+                            <div>
+                                <label for="nombres">Nombres:</label>
+                                <input type="text" id="nombres" name="nombres" value="" placeholder="Nombre Completo">
+                            </div>
+                            <div>
+                                <label for="apellidos">Apellidos:</label>
+                                <input type="text" name="apellidos" id="apellidos" value="" placeholder="Apellidos">
+                            </div>
+                            <div>
+                                <label for="email">Email:</label>
+                                <input type="text" name="email" id="email" value="" placeholder="Email">
+                            </div>
+                            <div>
+                                <label for="edad">Edad:</label>
+                                <input type="text" name="edad" id="edad" value="" placeholder="Edad">
+                            </div>
+                            <div>
+                                <input type="button" value="Guardar" id="btnGuardar" class="button"><input type="reset" value="Cancelar" id="btnCancelar" class="button">
+                            </div>
+                            <input type="hidden" id="accion" value="crear">
+                            <input type="hidden" id="id">
+                        </fieldset>
+                    </form>
+                </div>
+            </article>
+
+            <article>
+                <table id="datosTabla">
+                    <caption>Lista de Usuarios</caption>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Edad</th>
+                            <th>Email</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </article>
+        </section>
+    </body>
+    <script src="js/index.js"></script>
+</html>
