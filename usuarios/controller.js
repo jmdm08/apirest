@@ -1,5 +1,6 @@
 const express = require('express');
 const routes = express.Router();
+const rutaProtegida = require('../jwt/jwt');
 const serviciosUsuarios = require('./service');
 
 /*
@@ -11,27 +12,27 @@ const serviciosUsuarios = require('./service');
 */
 
 // SELECCIONAR TODOS LOS USUARIOS
-routes.get("/listar", async function(req, res){
+routes.get("/listar", rutaProtegida, async function(req, res){
     // AQUI SE LLAMA EL SERVICIO QUE VA A TRANSFORMAR LA PETICIÓN
     let data = await serviciosUsuarios.obtenerUsuarios();
     res.send({usuarios: data});
 });
 
 // OBTENER UN USUARIO
-routes.get("/listar/:id", async function(req, res){
+routes.get("/listar/:id", rutaProtegida, async function(req, res){
     // AQUÍ EL SERVICIO
     let id = req.params.id;
     let data = await serviciosUsuarios.obtenerUsuario(id);
     res.send(data);
 });
 
-routes.post("/crear", async function(req, res){
+routes.post("/crear", rutaProtegida, async function(req, res){
     let datos = req.body;
     let data = await serviciosUsuarios.crearUsuario(datos);
     res.status(201).send(data);
 })
 
-routes.put("/actualizar/:id", async function(req, res){
+routes.put("/actualizar/:id", rutaProtegida, async function(req, res){
     let id = req.params.id;
     let datos = req.body;
     let data = await serviciosUsuarios.actualizarUsuario(id, datos);
@@ -39,7 +40,7 @@ routes.put("/actualizar/:id", async function(req, res){
 });
 
 // ID POR QUERY
-routes.delete("/eliminar", async function(req, res){
+routes.delete("/eliminar", rutaProtegida, async function(req, res){
     let id = req.query.id;    
     let data = await serviciosUsuarios.eliminarUsuario(id);
     res.send(data);

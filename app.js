@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 require('dotenv').config();
 const controladorUsuarios = require('./usuarios/controller');
+const controladorAuth = require('./auth/controller');
 
 //CONFIGURAR EL API.
 const port = process.env.API_PORT;
@@ -13,6 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 // IMPLEMENTAR CONTROLADORES
 // URL_SERVER:PORT/usuarios/listar
 app.use("/usuarios", controladorUsuarios);
+app.use("/auth", controladorAuth);
 
 // CONFIGURAR CARPETA PÚBLICA
 const publicPath = path.resolve(__dirname, 'public');

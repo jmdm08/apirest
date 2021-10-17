@@ -5,11 +5,23 @@ window.addEventListener("DOMContentLoaded", function(evento){
 
 function iniciarEventos(){
     document.getElementById("btnGuardar").addEventListener("click", guardar);
+    document.getElementById("btnLogout").addEventListener("click", cerrarSesion)
+}
+
+function cerrarSesion(evento){
+    localStorage.clear();
+    window.location.href = "login.html";
 }
 
 function cargar(){
+
+    let token = JSON.parse(localStorage.getItem('auth')).token;
+
     const options = {
-        method : "GET"
+        method : "GET",
+        headers: {
+            "Authorization": "Bearer " + token
+        }
     }
 
     fetch("http://localhost:3200/usuarios/listar", options)
