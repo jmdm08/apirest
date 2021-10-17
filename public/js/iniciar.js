@@ -26,7 +26,7 @@ function iniciar(evento){
             body : JSON.stringify(datos)
         }
 
-        fetch("http://localhost:3200/auth/iniciar",options)
+        fetch("http://18.220.173.52:3200/auth/iniciar",options)
             .then(function(respuesta){
                 if(respuesta.ok){
                     respuesta.json()

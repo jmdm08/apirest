@@ -25,7 +25,7 @@ function cargar(){
         }
     }
 
-    fetch("http://localhost:3200/usuarios/listar", options)
+    fetch("http://18.220.173.52:3200/usuarios/listar", options)
         .then(function(respuesta){
             if(respuesta.ok){
                 respuesta.json()
@@ -63,7 +63,7 @@ function guardar(evento){
             body: JSON.stringify(datosUsuario)
         }
 
-        fetch("http://localhost:3200/usuarios/crear", options)
+        fetch("http://18.220.173.52:3200/usuarios/crear", options)
             .then(function(respuesta){
                 if(respuesta.ok){
                     respuesta.json()
@@ -92,7 +92,7 @@ function guardar(evento){
             body : JSON.stringify(datosUsuario)
         }
 
-        fetch("http://localhost:3200/usuarios/actualizar/"+id, options)
+        fetch("http://18.220.173.52:3200/usuarios/actualizar/"+id, options)
             .then(function(respuesta){
                 if(respuesta.ok){
                     respuesta.json()
@@ -147,7 +147,7 @@ function eliminarFila(evento){
         mode: 'cors',
     }
 
-    fetch("http://localhost:3200/usuarios/eliminar?id="+id, options)
+    fetch("http://18.220.173.52:3200/usuarios/eliminar?id="+id, options)
         .then(function(respuesta){
             if(respuesta.ok){
                 respuesta.json()
@@ -169,7 +169,7 @@ function editarFila(evento){
         method: "GET"
     }
 
-    fetch("http://localhost:3200/usuarios/listar/"+id, options)
+    fetch("http://18.220.173.52:3200/usuarios/listar/"+id, options)
         .then(function(respuesta){
             if(respuesta.ok){
                 respuesta.json()

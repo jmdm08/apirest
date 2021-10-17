@@ -26,7 +26,7 @@ function registrarUsuario(evento){
             body : JSON.stringify(datos)
         }
 
-        fetch("http://localhost:3200/auth/registrar", options)
+        fetch("http://18.220.173.52:3200/auth/registrar", options)
             .then(function(respuesta){
                 if(respuesta.ok){
                     alert("Registrado Correctamente...");
