@@ -19,6 +19,7 @@ function cargar(){
 
     const options = {
         method : "GET",
+        mode: 'cors',
         headers: {
             "Authorization": "Bearer " + token
         }
@@ -55,6 +56,7 @@ function guardar(evento){
 
         const options = {
             method : "POST",
+            mode: 'cors',
             headers : {
                 "Content-Type": 'application/json'
             },
@@ -83,6 +85,7 @@ function guardar(evento){
 
         const options = {
             method : "PUT",
+            mode: 'cors',
             headers: {
                 "Content-Type": 'application/json'
             },
@@ -140,7 +143,8 @@ function eliminarFila(evento){
     let id = fila.getAttribute("data-id");
 
     const options = {
-        method: "DELETE"
+        method: "DELETE",
+        mode: 'cors',
     }
 
     fetch("http://localhost:3200/usuarios/eliminar?id="+id, options)

@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const path = require('path');
 require('dotenv').config();
 const controladorUsuarios = require('./usuarios/controller');
@@ -10,6 +11,7 @@ const port = process.env.API_PORT;
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(cors());
 
 // IMPLEMENTAR CONTROLADORES
 // URL_SERVER:PORT/usuarios/listar
